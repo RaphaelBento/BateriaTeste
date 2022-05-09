@@ -84,11 +84,34 @@ namespace BateriaTeste
             TextBlock txt2 = new TextBlock { Text = " status da bateria: " + report.Status.ToString() };
             txt2.FontStyle = Windows.UI.Text.FontStyle.Italic;
             txt2.Margin = new Thickness(0, 0, 0, 15);
+            var EstaCarregando = report.ChargeRateInMilliwatts;
+            string ReceberespostaCarga;
+            var PercentualDeDesgate = (report.FullChargeCapacityInMilliwattHours *100)/ report.DesignCapacityInMilliwattHours;
+            string RespondePercentualDesgaste;
+            if (PercentualDeDesgate <= 70)
+            {
+                RespondePercentualDesgaste = "Deve ser considerada a subestituição da Bateria de seu notebook" +
+                    "\npois sua bateria tem "+ PercentualDeDesgate + "% de capacidade de um total de 100%";
+            }
+            else
+            {
+                RespondePercentualDesgaste = "Sua bateria está com: " + PercentualDeDesgate + "% de capacidade de um total de 100%";
+            }
 
-            TextBlock txt3 = new TextBlock { Text = "taxa de carga(miliWhats): " + report.ChargeRateInMilliwatts.ToString() };
+            if (EstaCarregando > 0)
+            {
+                ReceberespostaCarga = report.ChargeRateInMilliwatts.ToString();
+            }
+            else
+            {
+                ReceberespostaCarga = "O carregador foi desligado seu sistema está consumindo : " + report.ChargeRateInMilliwatts.ToString().Substring(1)+" Miliwats";
+            }
+           
+            TextBlock txt3 = new TextBlock { Text = "taxa de uso em(miliWhats): " + ReceberespostaCarga };
             TextBlock txt4 = new TextBlock { Text = "Capacidade da bateria em (mWh): " + report.DesignCapacityInMilliwattHours.ToString() };
             TextBlock txt5 = new TextBlock { Text = "Capacidade da bateria totalmente carregada (mWh): " + report.FullChargeCapacityInMilliwattHours.ToString() };
             TextBlock txt6 = new TextBlock { Text = "Capacidade restante da bateria (mWh): " + report.RemainingCapacityInMilliwattHours.ToString() };
+            TextBlock txt7 = new TextBlock { Text = RespondePercentualDesgaste };
 
             // Create energy capacity progress bar & labels
             TextBlock pbLabel = new TextBlock { Text = "Porcentagem restante da bateria" };
@@ -130,6 +153,7 @@ namespace BateriaTeste
             sp.Children.Add(txt4);
             sp.Children.Add(txt5);
             sp.Children.Add(txt6);
+            sp.Children.Add(txt7);
             sp.Children.Add(pbLabel);
             sp.Children.Add(pb);
             sp.Children.Add(pbPercent);

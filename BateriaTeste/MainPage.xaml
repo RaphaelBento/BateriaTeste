@@ -10,8 +10,7 @@
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Style="{StaticResource SettingsFlyoutSectionStyle}" >
         <StackPanel VerticalAlignment="Center" Margin="15,30,0,0" >
-            <RadioButton x:Name="BotaoTeste" Content="Botao Teste" GroupName="Type" IsChecked="True" />
-            <RadioButton x:Name="IndividualButton" Content="ObterIdDaBateria" GroupName="Type" IsChecked="False" />
+            <RadioButton x:Name="BotaoTeste" Content="Botao Teste" GroupName="Type" IsChecked="True"  Visibility="Collapsed"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Button x:Name="GetBatteryReportButton" 
@@ -20,5 +19,8 @@
                 Click="GetBatteryReport"/>
         </StackPanel>
         <StackPanel x:Name="BatteryReportPanel" Margin="15,15,0,0"/>
+        <StackPanel HorizontalAlignment="Stretch" Height="100" Margin="0,0,0,0" VerticalAlignment="Stretch">
+            <Viewbox HorizontalAlignment="Stretch" Height="100" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+        </StackPanel>
     </StackPanel>
 </Page>

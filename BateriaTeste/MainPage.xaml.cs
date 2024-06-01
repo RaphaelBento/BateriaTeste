@@ -5,6 +5,7 @@ using Windows.UI.Xaml.Media;
 using Windows.Devices.Enumeration;
 using Windows.Devices.Power;
 using Windows.UI.Core;
+using Windows.System.Power;
 
 namespace BateriaTeste
 {
@@ -81,7 +82,10 @@ namespace BateriaTeste
             txt1.Margin = new Thickness(0, 15, 0, 0);
             txt1.TextWrapping = TextWrapping.WrapWholeWords;
 
-            TextBlock txt2 = new TextBlock { Text = " status da bateria: " + report.Status.ToString() };
+            TextBlock txt2 = new TextBlock
+            {
+                Text = report.Status == BatteryStatus.Idle ? "Seu computador está carregando" : "Status da bateria : Descarregando abaixo o consumo em miliwatts hora"
+            };
             txt2.FontStyle = Windows.UI.Text.FontStyle.Italic;
             txt2.Margin = new Thickness(0, 0, 0, 15);
             var EstaCarregando = report.ChargeRateInMilliwatts;
@@ -90,8 +94,8 @@ namespace BateriaTeste
             string RespondePercentualDesgaste;
             if (PercentualDeDesgate <= 70)
             {
-                RespondePercentualDesgaste = "Deve ser considerada a subestituição da Bateria de seu notebook" +
-                    "\npois sua bateria tem "+ PercentualDeDesgate + "% de capacidade de um total de 100%";
+                RespondePercentualDesgaste = "Deve ser considerada a subestituição da Bateria de seu notebook " +
+                    " pois sua bateria tem "+ PercentualDeDesgate+ "% de capacidade de um total de 100%";
             }
             else
             {
@@ -100,11 +104,12 @@ namespace BateriaTeste
 
             if (EstaCarregando > 0)
             {
-                ReceberespostaCarga = report.ChargeRateInMilliwatts.ToString();
+                ReceberespostaCarga = "O carregador foi desligado seu sistema está consumindo : " + report.ChargeRateInMilliwatts.ToString().Substring(1) + " Miliwats";
+             
             }
             else
             {
-                ReceberespostaCarga = "O carregador foi desligado seu sistema está consumindo : " + report.ChargeRateInMilliwatts.ToString().Substring(1)+" Miliwats";
+                ReceberespostaCarga = report.ChargeRateInMilliwatts.ToString();
             }
            
             TextBlock txt3 = new TextBlock { Text = "taxa de uso em(miliWhats): " + ReceberespostaCarga };

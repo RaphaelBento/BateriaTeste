@@ -9,13 +9,13 @@
   <Identity
     Name="72de4cd5-e80c-44ad-813e-bd0daa559bad"
     Publisher="CN=Raphael"
-    Version="1.0.0.0" />
+    Version="1.0.3.0" />
 
   <mp:PhoneIdentity PhoneProductId="72de4cd5-e80c-44ad-813e-bd0daa559bad" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>BateriaTeste</DisplayName>
-    <PublisherDisplayName>Raphael</PublisherDisplayName>
+    <DisplayName>Bateria Status</DisplayName>
+    <PublisherDisplayName>Raphael_Bento</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,15 +30,13 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="BateriaTeste.App">
+      EntryPoint="BateriaStatus.App">
       <uap:VisualElements
-        DisplayName="BateriaTeste"
+        DisplayName="Bateria status"
         Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Aprovada.jpg"
-        Description="BateriaTeste"
-        BackgroundColor="transparent">
+        Description="Bateria status , app ´para saber a saude da bateria e se necessita a troca da mesma"
+        BackgroundColor="transparent" Square44x44Logo="Assets\Square44x44Logo.png">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
-        <uap:SplashScreen Image="Assets\Aprovada.jpg" />
       </uap:VisualElements>
     </Application>
   </Applications>

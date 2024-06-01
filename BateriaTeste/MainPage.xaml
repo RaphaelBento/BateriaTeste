@@ -15,7 +15,7 @@
         <StackPanel Orientation="Horizontal">
             <Button x:Name="GetBatteryReportButton" 
                 Content="Obeter relatório da bateria" 
-                Margin="30,30,0,0" 
+                Margin="150,30,0,0" 
                 Click="GetBatteryReport"/>
         </StackPanel>
         <StackPanel x:Name="BatteryReportPanel" Margin="15,15,0,0"/>

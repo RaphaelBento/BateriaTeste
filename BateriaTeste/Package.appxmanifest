@@ -8,8 +8,8 @@
 
   <Identity
     Name="72de4cd5-e80c-44ad-813e-bd0daa559bad"
-    Publisher="CN=Raphael"
-    Version="1.0.3.0" />
+    Publisher="CN=Raphael_Bento"
+    Version="1.0.5.0" />
 
   <mp:PhoneIdentity PhoneProductId="72de4cd5-e80c-44ad-813e-bd0daa559bad" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -40,8 +40,4 @@
       </uap:VisualElements>
     </Application>
   </Applications>
-
-  <Capabilities>
-    <Capability Name="internetClient" />
-  </Capabilities>
 </Package>

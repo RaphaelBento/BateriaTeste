@@ -1,0 +1,1 @@
+Aplicativo que usa as api's de energia do windows para verificar capacidade original da bateria e a capacidade atual da bateria , também devolvemo resultado de uma calculo onde a bateria retornar menos de 65% da capaciadade original será sugerida a troca da mesma, app em fase de implementação e distribuição de pacote
